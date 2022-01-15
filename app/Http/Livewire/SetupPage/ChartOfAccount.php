@@ -38,4 +38,18 @@ class ChartOfAccount extends Component
         $this->status              = $result->status;
         $this->descr               = $result->descr;
     }
+
+    public function saveChartOfAccount()
+    {
+        ChartOfAccountModel::updateOrCreate(['id' => $this->chart_of_account_id ?? ''], [
+            'name'   => $this->name,
+            'status' => $this->status,
+            'descr'  => $this->descr,
+        ]);
+
+        $this->emit('refreshDatatable');
+
+        session()->flash('message',
+            $this->chart_of_account_id ? 'Chart Of Account successfully updated.' : 'New Chart Of Account successfully added.');
+    }
 }

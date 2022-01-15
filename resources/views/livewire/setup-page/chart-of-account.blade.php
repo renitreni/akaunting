@@ -26,7 +26,8 @@
     </div>
 
     <!-- Modal -->
-    <div wire:ignore.self class="modal fade" id="chartOfAccountModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" id="chartOfAccountModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -55,7 +56,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            wire:click="saveChartOfAccount">Save changes
+                    </button>
+                    @if($chart_of_account_id)
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                wire:click="saveChartOfAccount">Delete
+                        </button>
+                    @endif
                 </div>
             </div>
         </div>
