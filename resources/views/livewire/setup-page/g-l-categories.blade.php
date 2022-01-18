@@ -21,7 +21,7 @@
             </button>
         </div>
         <div class="mt-3">
-            <livewire:g-l-category-table/>
+            <livewire:setup-page.g-l-category-table/>
         </div>
     </div>
 

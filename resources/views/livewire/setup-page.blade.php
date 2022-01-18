@@ -43,7 +43,7 @@
         </div>
         <div class="tab-pane fade @if($panel == 2) active show @endif" id="pills-gl-categories" role="tabpanel"
              aria-labelledby="pills-gl-categories">
-            <livewire:g-l-categories/>
+            <livewire:setup-page.g-l-categories/>
         </div>
         <div class="tab-pane fade @if($panel == 3) active show  @endif" id="pills-coa" role="tabpanel"
              aria-labelledby="pills-coa-tab">

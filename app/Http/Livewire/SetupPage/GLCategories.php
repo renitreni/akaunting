@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\SetupPage;
 
 use App\Models\GLCategory;
 use Livewire\Component;
@@ -22,7 +22,7 @@ class GLCategories extends Component
 
     public function render()
     {
-        return view('livewire.g-l-categories');
+        return view('livewire.setup-page.g-l-categories');
     }
 
     public function newGLCategory()

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\DetailsChartOfAccount;
 use App\Http\Livewire\PermissionEdit;
 use App\Http\Livewire\RoleCreate;
 use App\Http\Livewire\RoleEdit;
@@ -32,6 +33,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     });
     Route::prefix('setup')->group(function () {
         Route::get('/', SetupPage::class)->name('setup');
+    });
+    Route::prefix('details/coa')->group(function () {
+        Route::get('/{id}', DetailsChartOfAccount::class)->name('chart.of.account');
     });
     Route::prefix('manage-users')->group(function () {
         Route::get('/users', fn() => view('users'))->name('users');

@@ -12,14 +12,5 @@
     {{ strtoupper($row->status) }}
 </x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::bs5.table.cell>
-    <div class="btn-group-sm">
-        <button class="btn btn-outline-info dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown"
-                data-bs-auto-close="true" aria-expanded="false">
-            Actions
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-            <li><a class="dropdown-item" href="#">Assigned GL Accounts</a></li>
-            <li><a class="dropdown-item" href="#">Assigned GL Categories</a></li>
-        </ul>
-    </div>
+    <a href="{{ route('chart.of.account', ['id'=> encrypt($row->id)]) }}" type="button" class="btn btn-sm btn-info">Details</a>
 </x-livewire-tables::bs5.table.cell>

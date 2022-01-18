@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\SetupPage;
 
+use App\Models\AssigedGLAccount;
 use App\Models\ChartOfAccount as ChartOfAccountModel;
+use App\Models\GLAccount as GLAccountAlias;
 use Livewire\Component;
 
 class ChartOfAccount extends Component
@@ -13,6 +15,14 @@ class ChartOfAccount extends Component
     public    $status;
     public    $descr;
     protected $listeners = ['bindChartOfAccountEdit'];
+    public    $gl_account_list;
+    public    $selected_gl_account;
+
+    public function mount()
+    {
+        $this->selected_gl_account = '';
+        $this->gl_account_list     = GLAccountAlias::query()->select(['id', 'account', 'name'])->get();
+    }
 
     public function render()
     {
@@ -51,5 +61,14 @@ class ChartOfAccount extends Component
 
         session()->flash('message',
             $this->chart_of_account_id ? 'Chart Of Account successfully updated.' : 'New Chart Of Account successfully added.');
+    }
+
+    public function destroy()
+    {
+        ChartOfAccountModel::destroy($this->chart_of_account_id);
+
+        $this->emit('refreshDatatable');
+
+        session()->flash('message', 'Chart Of Account successfully deleted.');
     }
 }

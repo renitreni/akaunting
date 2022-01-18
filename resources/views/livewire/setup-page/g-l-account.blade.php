@@ -21,7 +21,7 @@
             </button>
         </div>
         <div class="mt-3">
-            <livewire:g-l-account-table></livewire:g-l-account-table>
+            <livewire:setup-page.g-l-account-table/>
         </div>
     </div>
     <!-- Modal -->
