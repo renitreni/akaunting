@@ -26,6 +26,7 @@ class AssigedGLAccountTable extends DataTableComponent
             Column::make('Designation', 'gla.designation')->sortable()->searchable(),
             Column::make('Posting Account', 'gla.posting_account')->sortable()->searchable(),
             Column::make('Description', 'gla.desc')->sortable()->searchable(),
+            Column::make('Action')
         ];
     }
 
@@ -43,5 +44,11 @@ class AssigedGLAccountTable extends DataTableComponent
     : string
     {
         return 'livewire-tables.rows.assiged_g_l_account_table';
+    }
+
+    public function destroy($id)
+    {
+        AssigedGLAccount::destroy($id);
+        $this->emit('destroyAssignedGLAccount');
     }
 }

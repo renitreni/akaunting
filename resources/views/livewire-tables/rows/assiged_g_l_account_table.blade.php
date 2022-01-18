@@ -20,5 +20,8 @@
     {{ $row->posting_account ? 'YES' : 'NO' }}
 </x-livewire-tables::bs5.table.cell>
 <x-livewire-tables::bs5.table.cell>
-    {{ $row->desc }}
+    {{ str_limit($row->desc, 40) }}
+</x-livewire-tables::bs5.table.cell>
+<x-livewire-tables::bs5.table.cell>
+    <butto class="btn btn-danger btn-sm" wire:click="destroy({{ $row->id }})">Remove</butto>
 </x-livewire-tables::bs5.table.cell>

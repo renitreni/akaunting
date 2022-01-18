@@ -12,6 +12,7 @@ class DetailsChartOfAccount extends Component
     public $chart_of_account_id;
     public $gl_account_list;
     public $selected_gl_account;
+    protected $listeners = ['destroyAssignedGLAccount'];
 
     public function mount($id)
     {
@@ -41,6 +42,11 @@ class DetailsChartOfAccount extends Component
         $this->selected_gl_account = null;
         $this->emit('refreshDatatable');
 
-        session()->flash('message', 'New GL Acccount has been assigned.');
+        session()->flash('message', 'New GL Account has been assigned.');
+    }
+
+    public function destroyAssignedGLAccount()
+    {
+        session()->flash('message', 'Assigned GL Account has been deleted.');
     }
 }
