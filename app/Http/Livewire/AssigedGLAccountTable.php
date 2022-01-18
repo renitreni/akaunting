@@ -18,7 +18,6 @@ class AssigedGLAccountTable extends DataTableComponent
     : array
     {
         return [
-            Column::make('ID', 'id')->sortable()->searchable(),
             Column::make('GL Account', 'gla.account')->sortable()->searchable(),
             Column::make('GL Account Name', 'gla.name')->sortable()->searchable(),
             Column::make('Status', 'gla.status')->sortable()->searchable(),

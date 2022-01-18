@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\AssigedGLAccount;
+use App\Models\AssignedCategory;
 use App\Models\ChartOfAccount;
 use App\Models\GLAccount;
 use App\Models\GLCategory;
 use App\Models\User;
-use Database\Factories\GLAccountFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -33,5 +33,6 @@ class DatabaseSeeder extends Seeder
         GLCategory::factory(20)->create();
         ChartOfAccount::factory(20)->create();
         AssigedGLAccount::factory(100)->create();
+        AssignedCategory::factory(100)->create();
     }
 }

@@ -48,18 +48,19 @@
             <div class="row mt-3">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                        <button wire:ignore.self class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
                                 aria-selected="true">Assigned GL Account
                         </button>
-                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                        <button wire:ignore.self class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-profile"
                                 type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Assigned GL
                             Categories
                         </button>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active p-2" id="nav-home" role="tabpanel"
+                    <div wire:ignore.self class="tab-pane fade show active p-2" id="nav-home" role="tabpanel"
                          aria-labelledby="nav-home-tab">
                         <div class="d-flex flex-column mt-3">
                             <div class="d-flex flex-row mb-3 border-bottom pb-2">
@@ -70,12 +71,15 @@
                                     <select class="form-select" wire:model="selected_gl_account">
                                         <option value="">-- Select Option --</option>
                                         @foreach($gl_account_list as $list)
-                                            <option value="{{ $list->id }}">{{ $list->account }}</option>
+                                            <option value="{{ $list->id }}">
+                                                {{ $list->account }} -- {{ $list->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="my-auto me-2">
-                                    <button type="button" class="btn btn-success" wire:click="assignGLAccount">Assign</button>
+                                    <button type="button" class="btn btn-success" wire:click="assignGLAccount">Assign
+                                    </button>
                                 </div>
                             </div>
                             <div>
@@ -83,8 +87,30 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade p-2" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        ...
+                    <div wire:ignore.self class="tab-pane fade p-2" id="nav-profile" role="tabpanel"
+                         aria-labelledby="nav-profile-tab">
+                        <div class="d-flex flex-column mt-3">
+                            <div class="d-flex flex-row mb-3 border-bottom pb-2">
+                                <div class="my-auto me-2">
+                                    <label>GL Category List</label>
+                                </div>
+                                <div class="me-2">
+                                    <select class="form-select" wire:model="selected_gl_category">
+                                        <option value="">-- Select Option --</option>
+                                        @foreach($gl_category_list as $list)
+                                            <option value="{{ $list->id }}">{{ $list->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="my-auto me-2">
+                                    <button type="button" class="btn btn-success" wire:click="assignGLCategory">Assign
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <livewire:assiged-g-l-category-table :coa_id="$result->id"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
