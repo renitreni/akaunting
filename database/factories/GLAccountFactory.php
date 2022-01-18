@@ -20,7 +20,7 @@ class GLAccountFactory extends Factory
             'name'            => $this->faker->word(),
             'status'          => $this->faker->randomElement(['draft', 'active']),
             'desc'            => $this->faker->paragraph(10),
-            'posting_account' => 1,
+            'posting_account' => $this->faker->randomElement([1, 0]),
             'type'            => 'asset',
             'designation'     => 'cash',
         ];

@@ -15,14 +15,6 @@ class ChartOfAccount extends Component
     public    $status;
     public    $descr;
     protected $listeners = ['bindChartOfAccountEdit'];
-    public    $gl_account_list;
-    public    $selected_gl_account;
-
-    public function mount()
-    {
-        $this->selected_gl_account = '';
-        $this->gl_account_list     = GLAccountAlias::query()->select(['id', 'account', 'name'])->get();
-    }
 
     public function render()
     {

@@ -15,9 +15,9 @@ class CreateAssigedGLAccountsTable extends Migration
     {
         Schema::create('assiged_g_l_accounts', function (Blueprint $table) {
             $table->id();
-            $table->integer('parent_g_l_account_id');
-            $table->integer('child_g_l_account_id');
-            $table->integer('chart_of_account_id');
+            $table->integer('parent_g_l_account_id')->nullable();
+            $table->integer('child_g_l_account_id')->nullable();
+            $table->integer('chart_of_account_id')->nullable();
             $table->timestamps();
         });
     }
